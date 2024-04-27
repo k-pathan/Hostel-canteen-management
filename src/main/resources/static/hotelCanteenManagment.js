@@ -23,6 +23,7 @@ app.controller('myCtrl', function ($scope) {
     }
     $scope.removeFoodOrderList = function (data, index) {
         $scope.foodOrderList.splice(index, 1);
+        $scope.cartCount = $scope.cartCount - 1;
         $scope.cartDetails();
     }
     function getAdminDetails() {
@@ -88,6 +89,7 @@ app.controller('myCtrl', function ($scope) {
                     alert("Order placed!!!");
                     $('#cartModalId').modal('hide');
                     $scope.cartCount = 0;
+                    $scope.foodOrderList = [];
                     $scope.orderData = {};
                     //$scope.switchMenu("BILLING", "billingTabId");
 
